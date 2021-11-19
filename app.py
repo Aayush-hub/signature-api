@@ -16,12 +16,12 @@ keyPub = RSA.importKey(keyDER)
 app = Flask(__name__)
 
 
-@app.route('/')
-def initial_route():
-    return render_template('index.html')
+# @app.route('/')
+# def initial_route():
+#     return render_template('index.html')
 
 
-@app.route('/password', methods=['GET'])
+@app.route('/', methods=['GET'])
 def generate_signature():
     if payouts_config_var.signature != "" and payouts_config_var.signature_expiry != 0 and (payouts_config_var.signature_expiry - time.time()) > 0:
         return
