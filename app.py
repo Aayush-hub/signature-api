@@ -23,8 +23,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def generate_signature():
-    if payouts_config_var.signature != "" and payouts_config_var.signature_expiry != 0 and (payouts_config_var.signature_expiry - time.time()) > 0:
-        return
+    
     cur_time = round(time.time())
     cur_time_str = str(cur_time)
     encode_data = payouts_config_var.payout_creds.client_id + "." + cur_time_str
